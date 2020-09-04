@@ -2,6 +2,7 @@ def getVideoTitle(url_link):
     import urllib.request
     import json
     import urllib
+    from StringUtils import format_filename
 
     params = {"format": "json", "url": url_link}
     url = "https://www.youtube.com/oembed"
@@ -13,5 +14,4 @@ def getVideoTitle(url_link):
         response_text = response.read()
         data = json.loads(response_text.decode())
         title = data["title"]
-    return title
-
+    return format_filename(title)

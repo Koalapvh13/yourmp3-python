@@ -15,6 +15,3 @@ def download(videoID, savePath):
 
 
 DIRECTORY = "./YourMP3-Downloads/"
-VIDEO_ID = "7o1FzLpRUKQ"
-
-download(VIDEO_ID, DIRECTORY)

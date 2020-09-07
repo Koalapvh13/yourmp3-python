@@ -130,3 +130,6 @@ dmypy.json
 
 #VS Code Stuff
 .vscode/
+
+#Project Stuff
+YourMP3-downloads/

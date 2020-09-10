@@ -1,10 +1,25 @@
 def DownloadMP3(videoID, filename, path="./"):
-    from mhyt import yt_download
+    from youtube_dl import YoutubeDL
+    import youtube_dl
+    from VideoInfo import getVideoTitle
 
     videoURL = "https://www.youtube.com/watch?v=" + videoID
     saveIn = path + filename + ".mp3"
     try:
-        yt_download(videoID, saveIn, ismusic=True)
+        ydl_opts = {
+            "format": "bestaudio/best",
+            "outtmpl": saveIn + ".%(ext)s",
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "192",
+                }
+            ],
+        }
+
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([videoURL])
         return True
     except Exception as e:
         return False

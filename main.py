@@ -6,7 +6,7 @@ from os.path import dirname, realpath, join
 def download(videoID, savePath):
     YTLINK = "https://www.youtube.com/watch?v=" + videoID
     title = getVideoTitle(YTLINK)
-    if title is not "":
+    if title != "":
         if DownloadMP3(videoID, title, savePath):
             print("Baixado com sucesso!")
         else:

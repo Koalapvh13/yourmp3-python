@@ -4,7 +4,7 @@ def DownloadMP3(videoID, filename, path="./"):
     from VideoInfo import getVideoTitle
 
     videoURL = "https://www.youtube.com/watch?v=" + videoID
-    saveIn = path + filename + ".mp3"
+    saveIn = path + filename
     try:
         ydl_opts = {
             "format": "bestaudio/best",

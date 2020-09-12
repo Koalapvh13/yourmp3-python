@@ -10,8 +10,12 @@ def getVideoTitle(url_link):
     url = url + "?" + query_string
 
     title = ""
-    with urllib.request.urlopen(url) as response:
-        response_text = response.read()
-        data = json.loads(response_text.decode())
-        title = data["title"]
-    return format_filename(title)
+    try:
+        with urllib.request.urlopen(url) as response:
+            response_text = response.read()
+            data = json.loads(response_text.decode())
+            title = data["title"]
+    except urllib.error.HTTPError as exception:
+        pass
+    finally:
+        return format_filename(title)

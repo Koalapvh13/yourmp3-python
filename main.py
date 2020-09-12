@@ -1,5 +1,6 @@
 from DownloadMP3 import DownloadMP3
 from VideoInfo import getVideoTitle
+from os.path import dirname, realpath, join
 
 
 def download(videoID, savePath):
@@ -14,4 +15,4 @@ def download(videoID, savePath):
         print("Falha procurar o Titulo do Vídeo!")
 
 
-DIRECTORY = "./YourMP3-Downloads/"
+DIRECTORY = join(dirname(realpath(__file__)), "YourMP3-Downloads/")

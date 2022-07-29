@@ -1,7 +1,13 @@
 def DownloadMP3(videoID, filename, path="./"):
+    from win10toast import ToastNotifier
     from youtube_dl import YoutubeDL
     import youtube_dl
-    from VideoInfo import getVideoTitle
+
+    toaster = ToastNotifier()
+    toaster.show_toast(filename,
+    "Baixando música em MP3",
+    duration=10)
+    # from VideoInfo import getVideoTitle
 
     videoURL = "https://www.youtube.com/watch?v=" + videoID
     saveIn = path + filename
@@ -23,3 +29,6 @@ def DownloadMP3(videoID, filename, path="./"):
         return True
     except Exception as e:
         return False
+
+
+#print(DownloadMP3("rWVjht-MIto", "Specktrem - Shine", "./YourMP3-Downloads/"))
